@@ -12,7 +12,7 @@ const ReadMoreLess = () => {
   return (
    <>
 
-<span id="projects"></span>
+<span id="tech-stack"></span>
     <section className=" " id="features">
       <div className=" pt-10  bg-custom-bg bg-cover bg-center dark:bg-none">
         <div className="pb-0 sm:pb-12 text-center space-y-3">
@@ -24,10 +24,9 @@ const ReadMoreLess = () => {
           </h1>
           <p
             data-aos="fade-up"
-            className="text-gray-600 dark:text-gray-400 text-sm"
+            className="text-gray-600 dark:text-gray-400 text-sm mx-4"
           >
-            Globally actualize cost effective with resource maximizing
-            leadership skills.
+            ClouSec helps organizations to simplify their cloud security operations providing 360 degree insights of the cloud environment helping to be non-compliant with regard to security, external regulations through proof of compliance saving money and efforts significantly.
           </p>
         </div>
         <div className="flex flex-col sm:flex-row ">

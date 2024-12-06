@@ -55,7 +55,12 @@ const Price = () => {
       <div className="bg-gray-100 dark:bg-black dark:text-white py-12 sm:grid sm:place-items-center">
         <div className="container">
           {/* Header */}
+          <div className=" pb:0 sm:pb-10 ">
+                <h1 className=" my-8 sm:my-0  text-center text-primary py-4 pl-2 text-3xl font-semibold">
+                We are not an another CSPM tool in the market, Our Unique features are
 
+                </h1>
+              </div>
           {/* services cards */}
           <div className="flex flex-col sm:flex-row justify-between items-center ">
             <div className=" pb-4 sm:pb-1 h-auto sm:min-h-[40rem]  flex flex-col ">

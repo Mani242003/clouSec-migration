@@ -1,40 +1,40 @@
 import React from "react";
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import Logo from "../../assets/logo.png";
-const FooterLinks = [
+const FooterCompanyLinks = [
   {
     title: "About",
-    link: "/#about",
+    link: "https://www.stigmatatech.com/about-us",
+  },
+  {
+    title: "Services",
+    link: "https://www.stigmatatech.com",
+  },
+  {
+    title: "Contact",
+    link: "https://www.stigmatatech.com/contact",
+  },
+  {
+    title: "Career",
+    link: "https://www.stigmatatech.com/careers",
+  },
+];
+const QuickLinks = [
+  {
+    title: "Price",
+    link: "/#price",
   },
   {
     title: "Features",
     link: "/#features",
   },
   {
-    title: "Works",
-    link: "/#works",
+    title: "Problem",
+    link: "/#problem",
   },
   {
-    title: "Career",
-    link: "/#career",
-  },
-];
-const HelpLinks = [
-  {
-    title: "Customer Support",
-    link: "/#support",
-  },
-  {
-    title: "Delivery Details",
-    link: "/#delivery-details",
-  },
-  {
-    title: "Terms & Conditions",
-    link: "/#terms",
-  },
-  {
-    title: "Privacy Policy",
-    link: "/#policy",
+    title: "How It Works",
+    link: "/#tech-stack",
   },
 ];
 const ResourcesLinks = [
@@ -58,12 +58,10 @@ const Footer = () => {
         <div className=" grid md:grid-cols-3 py-5">
           {/* company Details */}
           <div className=" py-8 px-4 ">
-          <img src={Logo} alt="" className=" cursor-pointer w-40" />
+          <img src={Logo} alt="" className=" cursor-pointer w-40 sm:w-[240px] mb-4" />
 
             <p className="text-sm">
-              Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet
-              consectetur adipisicing elit consectetur adipisicing elit ipsum
-              dolor sit amet consectetur. adipisicing{" "}
+            The 1st Cloud Security Tool with CSPM & CCOE Features, Designed from the Ground Up Based on In-Depth Research and Understanding of Cybersecurity Challenges for CIOs and CISOs.
             </p>
             <br />
             {/* Social Handle */}
@@ -74,7 +72,7 @@ const Footer = () => {
               <a href="#">
                 <FaFacebook className="text-2xl hover:text-primary duration-300" />
               </a>
-              <a href="#">
+              <a href="https://www.linkedin.com/company/103767687">
                 <FaLinkedin className="text-2xl hover:text-primary duration-300" />
               </a>
             </div>
@@ -87,13 +85,14 @@ const Footer = () => {
                   Company
                 </h1>
                 <ul className={`flex flex-col gap-3`}>
-                  {FooterLinks.map((link) => (
-                    <li
+                  {FooterCompanyLinks.map((link) => (
+                    <a
+                    href={link.link}
                       key={link.title}
                       className="cursor-pointer hover:translate-x-1 duration-300 hover:!text-primary space-x-1 text-gray-400 "
                     >
                       <span>{link.title}</span>
-                    </li>
+                    </a>
                   ))}
                 </ul>
               </div>
@@ -104,13 +103,14 @@ const Footer = () => {
                   Help
                 </h1>
                 <ul className="flex flex-col gap-3">
-                  {HelpLinks.map((link) => (
-                    <li
+                  {QuickLinks.map((link) => (
+                    <a
+                    href={link.link}
                       key={link.title}
                       className="cursor-pointer hover:translate-x-1 duration-300 hover:!text-primary space-x-1 text-gray-400 "
                     >
                       <span>{link.title}</span>
-                    </li>
+                    </a>
                   ))}
                 </ul>
               </div>

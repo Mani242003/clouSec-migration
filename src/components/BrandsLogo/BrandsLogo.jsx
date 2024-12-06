@@ -9,7 +9,7 @@ const BrandsLogo = () => {
     <>
       <div className="container mb-12 pt-12 mt-0 sm:mt-0">
         <h1 className="text-center">ClouSec is backed and incubated by</h1>
-        <div className="py-6 md:px-32 flex  flex-wrap items-center justify-center gap-7">
+        <div className="py-6 md:px-32 flex  flex-wrap items-center justify-center gap-[70px] sm:gap-[150px]">
           <img src={Brand1} alt="" className="  w-40 "/>
           <img src={Brand2} alt="" className=" w-72 "/>
         

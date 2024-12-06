@@ -11,8 +11,8 @@ export const MenuLinks = [
   // Features
   {
     id: 1,
-    name: "Features",
-    link: "/#features",
+    name: "Price",
+    link: "/#price",
   },
   {
     id: 2,
@@ -22,7 +22,7 @@ export const MenuLinks = [
   {
     id: 3,
     name: "How It Works",
-    link: "/#projects",
+    link: "/#tech-stack",
   },
   {
     id: 4,
@@ -65,7 +65,7 @@ const Navbar = () => {
           <a
            
           >
-            <img src={Logo} alt="" className=" cursor-pointer w-40" />
+            <img src={Logo} alt="" className=" cursor-pointer w-40 sm:w-[230px]" />
             {/* <span className="text-2xl sm:text-3xl font-semibold">
               Digital agency
             </span> */}

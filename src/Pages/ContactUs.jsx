@@ -3,15 +3,18 @@ import { IoLocation } from "react-icons/io5";
 import { FaPhoneVolume } from "react-icons/fa6";
 import { IoMailSharp } from "react-icons/io5";
 import { TbWorld } from "react-icons/tb";
-import a from "../assets/backgroundOrg.png"
-
+import a from "../assets/backgroundOrg.png";
+import { FaLinkedin } from "react-icons/fa";
 import Navbar from "../components/Navbar/Navbar";
 const ContactUs = () => {
   return (
     <>
       <span id="contact-us"></span>
 
-      <div className="w-full   bg-cover bg-center bg-no-repeat dark:bg-none " style={{ background: `url(${a})`}}  >
+      <div
+        className="w-full   bg-cover bg-center bg-no-repeat dark:bg-none "
+        style={{ background: `url(${a})` }}
+      >
         <div className=" w-full pt-[65px] sm:pt-[85px]   ">
           <section className="container  pb-8 ">
             <div className="flex  flex-col sm:flex-row">
@@ -26,52 +29,105 @@ const ContactUs = () => {
                     Address
                   </h1>
                 </div>
-                <a href="">
-                  <p className="text-sm text-white-600 tracking-wide leading-6 ml-8">
-                    STIGMATA TECHNO SOLUTIONS No 52/1, Meenambal Salai,
-                    Vivekandhar Nagar, Kodungaiyur, (Near S.K Mahal), Chennai -
-                    600118
-                  </p>
-                </a>
+                <p className="text-sm text-white-600 tracking-wide leading-6 ml-8">
+                  ClouSec Technologies Private Ltd<br/>No 1, 2nd floor, Meenambal
+                  Salai, Vivekandhar Nagar, Chennai-600118, India
+                </p>
+                <p className="text-sm text-white-600 tracking-wide leading-6 ml-8 mt-4">
+                  11700 Lebanon Road, Apt 1527 Frisco,<br/>TX 75035-75025
+                </p>
+
                 <div className="flex items-center text-center mt-5">
                   <FaPhoneVolume className="text-primary text-2xl mr-2 " />
                   <h1 className="text-1xl sm:text-2xl font-bold pt-0 ">
                     Phone 24/7
                   </h1>
                 </div>
-                <a href="">
-                  <p className="text-sm text-white-600 tracking-wide leading-6 ml-8">
+                <div className="flex flex-col sm:flex-row ml-8 my-4 gap-0 sm:gap-6 ">
+                  <a
+                    href="https://www.clousec.io"
+                    className="text-[15px] text-white-600 tracking-wide leading-6 "
+                  >
                     +91 9790845787
-                  </p>
-                  <p className="text-sm text-white-600 tracking-wide leading-6 ml-8">
+                  </a>
+                  <a
+                    href="https://www.clousec.io"
+                    className="text-[15px] text-white-600 tracking-wide leading-6  "
+                  >
                     +91 9345336553
-                  </p>
-                  <p className="text-sm text-white-600 tracking-wide leading-6 ml-8">
+                  </a>{" "}
+                
+                  <a
+                    href="https://www.clousec.io"
+                    className="text-[15px] text-white-600 tracking-wide leading-6  border-b border-white"
+                  >
                     +91 9840068989
-                  </p>
-                </a>
+                  </a>
+                </div>
+
+              
+                <div className="flex items-center text-center mt-2">
+                  <TbWorld className="text-primary text-2xl mr-2 " />
+                  <h1 className="text-1xl sm:text-2xl font-bold pt-0 ">
+                    {" "}
+                    Website
+                  </h1>
+                </div>
+
+                <div className="flex flex-col sm:flex-row ml-8 my-4  gap-0 sm:gap-6">
+                  <a
+                    href="https://www.clousec.io"
+                    className="text-[15px] text-white-600 tracking-wide leading-6  border-b border-white"
+                  >
+                    www.clousec.io
+                  </a>
+               
+                  <a
+                    href="https://www.clousec.io"
+                    className="text-[15px] text-white-600 tracking-wide leading-6  border-b border-white "
+                  >
+                    www.clousec.in
+                  </a>{" "}
+                  <a
+                    href="https://www.clousec.io"
+                    className="text-[15px] text-white-600 tracking-wide leading-6  border-b border-white "
+                  >
+                    www.clousec.net
+                  </a>
+                </div>
+              <div className="flex flex-col sm:flex-row gap-0 sm:gap-2 justify-between px-2">
+              <div>
                 <div className="flex items-center text-center mt-2">
                   <IoMailSharp className="text-primary text-2xl mr-2 " />
                   <h1 className="text-1xl sm:text-2xl font-bold pt-0 ">Mail</h1>
                 </div>
-                <a href="">
-                  <p className="text-[15px] text-white-600 tracking-wide leading-6 ml-8">
-                    sales@clousec.io
-                  </p>
-                </a>
-                <div className="flex items-center text-center mt-2">
-                  <TbWorld className="text-primary text-2xl mr-2 " />
-                  <h1 className="text-1xl sm:text-2xl font-bold pt-0 ">Web</h1>
-                </div>
-                <a href="">
-                  <p className="text-[15px] text-white-600 tracking-wide leading-6 ml-8">
-                  www.clousec.io 
+               
+                <a
+                    href="https://www.clousec.io"
+                    className="text-[15px] text-white-600 tracking-wide leading-6  border-b border-white"
+                  >
+                                      sales@clousec.io
 
-                  </p>
-                  <p className="text-[15px] text-white-600 tracking-wide leading-6 ml-8">
-                  www.stigmatatech.com
-                  </p>
-                </a>
+                  </a>
+                </div>
+                <div>
+                <div className="flex items-center text-center mt-2">
+                  <FaLinkedin className="text-primary text-2xl mr-2 " />
+                  <h1 className="text-1xl sm:text-2xl font-bold pt-0 ">LinkedIn</h1>
+                </div>
+              
+                <a
+                    href="https://www.clousec.io"
+                    className="text-[15px] text-white-600 tracking-wide leading-6  border-b border-white"
+                  >
+                                      https://www.linkedin.com/company/103767687
+
+                  </a>
+                </div>
+
+              </div>
+           
+                
               </div>
               <div className="flex-1 p-0 sm:p-4  ">
                 <ContactForm />
