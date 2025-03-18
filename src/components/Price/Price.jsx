@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./Price.scss";
+// import "./Price.scss";
 import PriceCard from "./PriceCard/PriceCard";
 import Switch from "react-switch";
 
@@ -52,20 +52,19 @@ const Price = () => {
   return (
     <>
       <span id="price"></span>
-      <div className="bg-gray-100 dark:bg-black dark:text-white py-12 sm:grid sm:place-items-center">
+      <div className="bg-gray-100  py-12 sm:grid sm:place-items-center">
         <div className="container">
           {/* Header */}
-          <div className=" pb:0 sm:pb-10 ">
-                <h1 className=" my-8 sm:my-0  text-center text-primary py-4 pl-2 text-3xl font-semibold">
-                We are not an another CSPM tool in the market, Our Unique features are
-
-                </h1>
-              </div>
+          <div className="pb-0 sm:pb-10 w-full text-center">
+  <h1 className="my-8 sm:my-0 mx-auto text-center text-primary py-4 text-[35px] font-bold w-3/4">
+    We are not another CSPM tool in the market, Our Unique features are
+  </h1>
+</div>
           {/* services cards */}
           <div className="flex flex-col sm:flex-row justify-between items-center ">
             <div className=" pb-4 sm:pb-1 h-auto sm:min-h-[40rem]  flex flex-col ">
               <div className=" pb:0 sm:pb-10 ">
-                <h1 className=" my-8 sm:my-0 border-l-8 border-primary/50 py-2 pl-2 text-3xl font-semibold">
+                <h1 className=" my-8 sm:my-0 border-l-8 border-primary py-2 pl-2 text-3xl font-semibold">
                   PRICING
                 </h1>
               </div>

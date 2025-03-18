@@ -19,7 +19,7 @@ const PriceCard = ({ plan, subPlan, amout, style, id, prediod, features }) => {
   return (
     <div
   
-      className={`w-full sm:w-[23rem] min-h-[41rem]  bg-white flex flex-col items-start justify-center dark:bg-gray-800 text-start  py-4 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.05)] ${
+      className={`w-full sm:w-[23rem] min-h-[41rem]  bg-white flex flex-col items-start justify-center  text-start  py-4 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.05)] ${
         id
           ? ""
           : "border-t-[10px] border-[#5147AC] shadow-[0px_7px_29px_0px_rgba(100,100,111,0.2)]"

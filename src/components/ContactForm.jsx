@@ -59,7 +59,7 @@ const ContactForm = ({ services }) => {
   };
 
   return (
-    <div className=" p-4 sm:p-8  bg-[rgba(0,0,0,0.5)]  text-black">
+    <div className=" p-4 sm:p-8 bg-gray-100  text-black">
       <form onSubmit={onSubmit}>
         <div className="">
           <div className="">
@@ -68,7 +68,7 @@ const ContactForm = ({ services }) => {
               name="Customer Name"
               placeholder="Name"
               required
-              className="w-full    border border-gray-300 dark:border-gray-500 dark:bg-gray-800 px-3 py-2 outline-none mb-4"
+              className="w-full    border border-gray-300 px-3 py-2 outline-none mb-4"
             />
           </div>
         </div>
@@ -79,7 +79,7 @@ const ContactForm = ({ services }) => {
               name="E-mail"
               placeholder="E-mail"
               required
-              className="w-full    border border-gray-300 dark:border-gray-500 dark:bg-gray-800 px-3 py-2 outline-none mb-4"
+              className="w-full    border border-gray-300   px-3 py-2 outline-none mb-4"
             />
           </div>
           {}
@@ -90,7 +90,7 @@ const ContactForm = ({ services }) => {
               name="phone"
               placeholder="Phone Number"
               required
-              className="w-full    border border-gray-300 dark:border-gray-500 dark:bg-gray-800 px-3 py-2 outline-none mb-4"
+              className="w-full    border border-gray-300 px-3 py-2 outline-none mb-4"
             />
           </div>
         </div>
@@ -101,24 +101,10 @@ const ContactForm = ({ services }) => {
               name="Message"
               required
               placeholder="Message"
-              className="w-full    border border-gray-300 dark:border-gray-500 dark:bg-gray-800 px-3 py-2 outline-none mb-4 "
+              className="w-full    border border-gray-300  px-3 py-2 outline-none mb-4 "
             ></textarea>
 
-            {/* <div className="contactCaptchaContainer">
-              <span>{captcha} </span>
-              <MdRefresh onClick={() => refreshing()} />
-            </div>
-            <input
-              type="text"
-              name=""
-              placeholder="Enter Captcha"
-              value={text}
-              onChange={(e) => setText(e.target.value)}
-              id=""
-              required
-              className="w-full rounded-full border border-gray-300 dark:border-gray-500 dark:bg-gray-800 px-2 py-1 mb-4"
-            />
-            {valid && <label className="captcheresult">{result}</label>} */}
+            
           </div>
         </div>
         <div className="hcaptcha-container">

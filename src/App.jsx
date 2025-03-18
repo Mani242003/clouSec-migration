@@ -5,7 +5,10 @@ import "aos/dist/aos.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./Pages/Home.jsx";
-import ContactUs from "./Pages/ContactUs.jsx"; // Import the ContactUs component
+import ContactUs from "./components/ContactUs.jsx"; // Import the ContactUs component
+import PlatformOverview from "./Pages/PlatformOverview.jsx";
+import C_S_Details from "./Pages/C_S_Details.jsx";
+import ScrollProgressBar from "./components/ScrollProgressBar.jsx";
 
 const App = () => {
   useEffect(() => {
@@ -22,9 +25,12 @@ const App = () => {
 
   return (
     <BrowserRouter>
+    <ScrollProgressBar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/book-demo" element={<ContactUs />} /> {/* Ensure the component is imported */}
+        <Route path="/platform-overview" element={< PlatformOverview/>} /> {/* Ensure the component is imported */}
+        <Route path="/blogs/:slug" element={<C_S_Details />} />
         {/* <Route path="*" element={<NoPage />} /> */}
       </Routes>
     </BrowserRouter>

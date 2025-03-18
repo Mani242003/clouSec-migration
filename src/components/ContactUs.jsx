@@ -1,25 +1,25 @@
-import ContactForm from "../components/ContactForm";
+import ContactForm from "./ContactForm";
 import { IoLocation } from "react-icons/io5";
 import { FaPhoneVolume } from "react-icons/fa6";
 import { IoMailSharp } from "react-icons/io5";
 import { TbWorld } from "react-icons/tb";
 import a from "../assets/backgroundOrg.png";
 import { FaLinkedin } from "react-icons/fa";
-import Navbar from "../components/Navbar/Navbar";
+import Navbar from "./Navbar/Navbar";
 const ContactUs = () => {
   return (
     <>
       <span id="contact-us"></span>
 
       <div
-        className="w-full   bg-cover bg-center bg-no-repeat dark:bg-none "
-        style={{ background: `url(${a})` }}
+        className="w-full   "
+        
       >
         <div className=" w-full pt-[65px] sm:pt-[85px]   ">
           <section className="container  pb-8 ">
             <div className="flex  flex-col sm:flex-row">
               <div className="flex-1 pb-4 sm:pb-0 " data-aos="fade-up">
-                <h1 className="  border-l-8 border-primary/50  pl-2 text-4xl text-black dark:text-white font-bold py-0 my-8 ">
+                <h1 className="  border-l-8 border-primary/50  pl-2 text-4xl text-black font-bold py-0 my-8 ">
                   Have Questions? We've Got Answers
                 </h1>
 

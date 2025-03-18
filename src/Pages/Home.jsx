@@ -8,10 +8,11 @@ import Popup from "../components/Popup/Popup";
 import Price from "../components/Price/Price";
 import ReadMoreLess from "../components/ReadMoreLess/ReadMoreLess";
 import Services from "../components/Services/Services";
-import ContactUs from "./ContactUs";
+import ContactUs from "../components/ContactUs";
 
-import a from "../assets/backgroundOrg.png"
-// style={{ background: `url(${a})`
+import a from "/hero-bg.jpg"
+import Solutions from "../components/Solutions";
+import C_S_Component from "../components/C_S_Component";
 
 
 
@@ -28,6 +29,10 @@ const Home = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const closePopup = () => {
     setPopupVisible(false);
   };
@@ -35,24 +40,27 @@ const Home = () => {
   return (
     <>
 
-       <Popup  show={isPopupVisible} onClose={closePopup} />
-    <div className=" w-full dark:bg-black dark:text-white text-black overflow-x-hidden  bg-cover bg-center bg-no-repeat " style={{ background: `url(${a})` }}>
+       {/* <Popup  show={isPopupVisible} onClose={closePopup} /> */}
+       <div
+  className="w-full overflow-x-hidden bg-center "
+  style={{ background: `url(${a})`, backgroundSize: "contain" }}
+>
       <Navbar />
 
       <Hero />
       </div>
-      <div className="bg-white dark:bg-black dark:text-white  text-black overflow-x-hidden">
-      <BrandsLogo />
+      {/* <BrandsLogo /> */}
       <Services />
+      <Solutions />
+      <C_S_Component/>
       
       {/* <Testimonial /> */}
-      <ReadMoreLess />
-      <BlogsComp />
+      {/* <ReadMoreLess /> */}
+      {/* <BlogsComp /> */}
       <Price />
       <ContactUs />
       <Footer />
       
-    </div>
     
     </>
   );
