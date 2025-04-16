@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import C_S_Data from "../assets/C_S_Data";
+import OptimizedImage from "./OptimizedImage";
+import AspectRatioBox from "./AspectRatioBox";
+import { processBatch } from "../utils/taskScheduler";
+import { useState, useEffect } from "react";
 
 const C_S_Component = () => {
   return (
@@ -25,30 +29,73 @@ const C_S_Component = () => {
 };
 
 const C_S_List = () => {
+  const [processedItems, setProcessedItems] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  
+  // Process case study data in batches to improve performance
+  useEffect(() => {
+    const processItems = async () => {
+      setIsLoading(true);
+      
+      // Process data in batches to avoid blocking the main thread
+      const processed = await processBatch(C_S_Data.slice(0, 3), item => {
+        // Any complex processing can go here
+        return {
+          ...item,
+          processed: true
+        };
+      });
+      
+      setProcessedItems(processed);
+      setIsLoading(false);
+    };
+    
+    processItems();
+  }, []);
+
   return (
     <div className="flex flex-col sm:flex-row flex-wrap">
-      {C_S_Data.slice(0, 3).map((item) => (
-        <C_S_Item item={item} key={item.id} />
-      ))}
+      {isLoading ? (
+        // Placeholder while loading to prevent layout shift
+        Array(3).fill(0).map((_, index) => (
+          <div key={index} className="lg:w-1/3 md:w-1/2 sm:w-1/2 p-4 mb-5">
+            <div className="border border-gray-200 rounded overflow-hidden">
+              <div className="bg-gray-200 h-64 animate-pulse"></div>
+              <div className="p-4">
+                <div className="h-6 bg-gray-200 rounded w-3/4 mb-3 animate-pulse"></div>
+                <div className="h-4 bg-gray-200 rounded w-full mb-2 animate-pulse"></div>
+                <div className="h-4 bg-gray-200 rounded w-full mb-2 animate-pulse"></div>
+                <div className="h-4 bg-gray-200 rounded w-2/3 mb-4 animate-pulse"></div>
+                <div className="h-6 bg-gray-200 rounded w-1/4 animate-pulse"></div>
+              </div>
+            </div>
+          </div>
+        ))
+      ) : (
+        processedItems.map((item) => (
+          <C_S_Item item={item} key={item.id} />
+        ))
+      )}
     </div>
   );
 };
 
 const C_S_Item = ({ item }) => {
-  const { title,  imgUrl, challenges1 } = item;
+  const { title, imgUrl, challenges1 } = item;
 
   return (
     <div data-aos="zoom-in" className="lg:w-1/3 md:w-1/2 sm:w-1/2 p-4 mb-5">
       <div className="border border-gray-200 rounded overflow-hidden">
-        <img
-          loading="lazy"
-          role="presentation"
-          src={imgUrl}
-          srcSet={`${imgUrl}?w=500&h=500&fit=crop 500w, ${imgUrl}?w=1000&h=1000&fit=crop 1000w`}
-          sizes="(max-width: 600px) 500px, 1000px"
-          className="w-full"
-          alt="Description of the image"
-        />
+        {/* Use AspectRatioBox to maintain consistent image dimensions */}
+        <AspectRatioBox ratio="16:9">
+          <OptimizedImage
+            src={imgUrl}
+            alt={title}
+            width={500}
+            height={281}
+            className="w-full"
+          />
+        </AspectRatioBox>
         <div className="p-4">
           <Link
             to={`/blogs/${title}`}
@@ -83,12 +130,13 @@ const C_S_Item = ({ item }) => {
     </div>
   );
 };
+
 C_S_Item.propTypes = {
   item: PropTypes.shape({
     title: PropTypes.string.isRequired,
     subTitle: PropTypes.string,
     imgUrl: PropTypes.string.isRequired,
-    challenges: PropTypes.string.isRequired,
+    challenges1: PropTypes.string.isRequired,
     author: PropTypes.string,
     date: PropTypes.string,
     time: PropTypes.string,

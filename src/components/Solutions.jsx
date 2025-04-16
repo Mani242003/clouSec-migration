@@ -1,20 +1,20 @@
 import { useRef, useState } from "react";
-import sam_sol_img1 from "/sam-sol-1.webp";
-import sam_sol_img2 from "/sam-sol-2.webp";
-import sam_sol_img3 from "/sam-sol-3.webp";
-import sam_sol_img4 from "/sam-sol-4.webp";
+import OptimizedImage from "./OptimizedImage";
+import AspectRatioBox from "./AspectRatioBox";
+import { processBatch } from "../utils/taskScheduler";
 
 const Solutions = () => {
   const [activeTab, setActiveTab] = useState(0);
   const contentRef = useRef(null);
   const [openIndex, setOpenIndex] = useState(0);
+  const [processedTabs, setProcessedTabs] = useState(null);
 
   const tabs = [
     {
       title: "Scattered Security Insights",
       content: `Traditional solutions pull security data from various AWS services without true consolidation, making it difficult to analyze and remediate threats effectively.`,
       disabled: false,
-      img: sam_sol_img1,
+      img: "/sam-sol-1.webp",
       list: [
         {
           title: "Unified Security Dashboard",
@@ -22,7 +22,7 @@ const Solutions = () => {
         },
         {
           title: "Actionable Insights",
-          content: `Data isn’t just collected—it’s analyzed for patterns and combined with threat intelligence, so you can act quickly on meaningful findings.`,
+          content: `Data isn't just collected—it's analyzed for patterns and combined with threat intelligence, so you can act quickly on meaningful findings.`,
         },
       ],
     },
@@ -30,7 +30,7 @@ const Solutions = () => {
       title: "User Access Governance",
       content: `Cross-account access management is often limited in many CSPM tools, creating gaps in visibility and risk.`,
       disabled: false,
-      img: sam_sol_img2,
+      img: "/sam-sol-2.webp",
       list: [
         {
           title: "Granular Governance",
@@ -46,11 +46,11 @@ const Solutions = () => {
       title: "Alert Fatigue & Overwhelming Security Findings",
       content: `Security teams face an onslaught of unprioritized alerts, leading to high volumes of noise and significant alert fatigue.`,
       disabled: false,
-      img: sam_sol_img3,
+      img: "/sam-sol-3.webp",
       list: [
         {
           title: "Intelligent Prioritization",
-          content: `ClouSec’s recommendations reduce duplication and focus on the issues that matter most, slashing the time spent on low-impact alerts.`,
+          content: `ClouSec's recommendations reduce duplication and focus on the issues that matter most, slashing the time spent on low-impact alerts.`,
         },
         {
           title: "Automated Workflows",
@@ -62,11 +62,11 @@ const Solutions = () => {
       title: "Manual, Time-Consuming Remediation",
       content: `Current CSPM tools can flood you with findings, yet lack AI-driven remediation, leading to delays and increased vulnerabilities.`,
       disabled: false,
-      img: sam_sol_img4,
+      img: "/sam-sol-4.webp",
       list: [
         {
           title: "AI-Powered Automated Remediation",
-          content: `ClouSec’s system addresses security gaps automatically, applying best-practice fixes within minutes.`,
+          content: `ClouSec's system addresses security gaps automatically, applying best-practice fixes within minutes.`,
         },
         {
           title: "Faster Response Time",
@@ -78,7 +78,7 @@ const Solutions = () => {
       title: "Inefficient Cost Management & Idle Resource Monitoring",
       content: `Organizations frequently leave unused resources running, while traditional CSPM tools provide only partial cost visibility.`,
       disabled: false,
-      img: sam_sol_img1,
+      img: "/sam-sol-1.webp",
       list: [
         {
           title: "AI-Driven Rightsizing Recommendations",
@@ -94,7 +94,7 @@ const Solutions = () => {
       title: "Day-One Readiness for CIS, SOC, and MAS Regulations",
       content: `Meeting compliance standards is daunting, especially with multiple frameworks like CIS, SOC, or MAS.`,
       disabled: false,
-      img: sam_sol_img2,
+      img: "/sam-sol-2.webp",
       list: [
         {
           title: "Built-In Compliance Rules",
@@ -110,7 +110,7 @@ const Solutions = () => {
       title: "Flexible Deployment & Pricing",
       content: `Traditional CSPM and SIEM tools rely on a rigid SaaS model, making scaling costly and challenging.`,
       disabled: false,
-      img: sam_sol_img3,
+      img: "/sam-sol-3.webp",
       list: [
         {
           title: "Flexible Deployment Options",
@@ -118,7 +118,7 @@ const Solutions = () => {
         },
         {
           title: "Cost-Effective Scalability",
-          content: `ClouSec’s pricing scales with your organization—without punishing fees for growth.`,
+          content: `ClouSec's pricing scales with your organization—without punishing fees for growth.`,
         },
       ],
     },
@@ -126,7 +126,7 @@ const Solutions = () => {
       title: "Executive-Level Insights for Leadership",
       content: `Security data can be fragmented, making it difficult for executives to assess security and compliance postures.`,
       disabled: false,
-      img: sam_sol_img4,
+      img: "/sam-sol-4.webp",
       list: [
         {
           title: "Comprehensive Dashboards",
@@ -142,7 +142,7 @@ const Solutions = () => {
       title: "API Security",
       content: `APIs are a major attack vector, yet many security tools lack effective monitoring and detection capabilities.`,
       disabled: false,
-      img: sam_sol_img1,
+      img: "/sam-sol-1.webp",
       list: [
         {
           title: "Holistic API Monitoring",
@@ -158,7 +158,7 @@ const Solutions = () => {
       title: "Streamlined Ticketing & Incident Resolution",
       content: `Managing security exceptions across multiple teams can be chaotic, risking delays and miscommunication.`,
       disabled: false,
-      img: sam_sol_img2,
+      img: "/sam-sol-2.webp",
       list: [
         {
           title: "Customized Ticketing Workflow",
@@ -171,6 +171,23 @@ const Solutions = () => {
       ],
     },
   ];
+
+  // Process tabs data in batches to improve performance
+  useState(() => {
+    const processTabs = async () => {
+      const processed = await processBatch(tabs, tab => {
+        // Any complex processing can go here
+        return {
+          ...tab,
+          processed: true
+        };
+      });
+      
+      setProcessedTabs(processed);
+    };
+    
+    processTabs();
+  }, []);
 
   const handleTabClick = (index) => {
     setActiveTab(index);
@@ -186,22 +203,18 @@ const Solutions = () => {
   };
 
   return (
-    
-    <div id="our-solution"  className="w-full p-8 bg-gray-100 ">
-      <div className=" pb-6 text-start space-y-2 ">
+    <div id="our-solution" className="w-full p-8 bg-gray-100">
+      <div className="pb-6 text-start space-y-2">
         <span
           data-aos="fade-up"
-          className="text-[18px] font-bold  text-primary tracking-[3px] uppercase "
+          className="text-[18px] font-bold text-primary tracking-[3px] uppercase"
         >
           ClouSec Solution
         </span>
-        <h1 className="text-[30px] font-bold  w-full ">
+        <h1 className="text-[30px] font-bold w-full">
           Your Centralized Cloud Security & Compliance Solution
         </h1>
-        <p
-          //   data-aos="fade-up"
-          className="pr-2 text-black_   text-[18px] "
-        >
+        <p className="pr-2 text-black_ text-[18px]">
           Modern cloud environments are complex, with security insights often
           scattered across multiple AWS services—leading to missed threats, slow
           response times, and growing costs. ClouSec changes the game by
@@ -210,19 +223,17 @@ const Solutions = () => {
           biggest challenges in cloud security today.
         </p>
       </div>
-      <div className="flex flex-wrap  ">
+      <div className="flex flex-wrap">
         {tabs.map((tab, index) => (
           <button
             key={index}
-            className={`px-4 py-2 text-[14px] font-medium rounded-lg flex   mx-2  my-1 text-black_ border-b-2 border-transparent ml-0
-
+            className={`px-4 py-2 text-[14px] font-medium rounded-lg flex mx-2 my-1 text-black_ border-b-2 border-transparent ml-0
                 ${
                   activeTab === index
-                    ? "text-white-600 bg-primary2 text-white "
+                    ? "text-white-600 bg-primary2 text-white"
                     : "text-gray-700 bg-lightWhite"
                 }
               `}
-            // onClick={() => !tab.disabled && setActiveTab(index)}
             disabled={tab.disabled}
             onClick={() => handleTabClick(index)}
           >
@@ -232,18 +243,21 @@ const Solutions = () => {
         <div ref={contentRef}></div>
       </div>
       <div className="flex w-full pt-8 gap-6 bg-gray-100">
-        {/* Left Section - Image */}
-        <div className="  w-[45%] p-6 bg-lightWhite flex justify-center items-center ">
-          <img
-            src={tabs[activeTab].img}
-            alt={tabs[activeTab].title}
-            className="w-full h-auto object-cover rounded-lg"
-            loading="lazy"
-          />
+        {/* Left Section - Image with AspectRatioBox to prevent layout shift */}
+        <div className="w-[45%] p-6 bg-lightWhite flex justify-center items-center">
+          <AspectRatioBox ratio="4:3">
+            <OptimizedImage
+              src={tabs[activeTab].img}
+              alt={tabs[activeTab].title}
+              width={600}
+              height={450}
+              className="rounded-lg"
+            />
+          </AspectRatioBox>
         </div>
 
         {/* Right Section - Content */}
-        <div className="w-[55%] bg-gray-100  flex flex-col space-y-6">
+        <div className="w-[55%] bg-gray-100 flex flex-col space-y-6">
           {/* Challenge Section */}
           <div>
             <span className="text-xl tracking-wide uppercase font-bold text-primary">

@@ -1,23 +1,32 @@
-import {} from "react";
-import dashboard from "../../assets/dashboard.gif";
-import ScrollToTop from "react-scroll-to-top";
+import { } from "react";
 import { Link } from "react-router-dom";
+import OptimizedImage from "../OptimizedImage";
+import AspectRatioBox from "../AspectRatioBox";
+
 const Hero = () => {
   return (
     <>
-      <div className=" pb-6 pt-14">
+      <div className="pb-6 pt-14">
         <div className="container min-h-[600px] flex mt-0 sm:mt-0">
-          <div className="grid grid-cols-1 sm:grid-cols-2  place-items-start mt-24">
-            {/* Image section */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 place-items-start mt-24">
+            {/* Image section - Using OptimizedImage with AspectRatioBox */}
             <div
               data-aos="zoom-in"
-              className="order-1 pb-8 sm:pb-0 sm:order-2 relative "
+              className="order-1 pb-8 sm:pb-0 sm:order-2 relative w-full"
             >
-              <img src="/hero-image-providers.webp" alt="Hero" />
+              <AspectRatioBox ratio="16:9">
+                <OptimizedImage 
+                  src="/hero-image-providers.webp" 
+                  alt="Hero" 
+                  priority={true} // This is an above-the-fold image, so mark it as priority
+                  width={800}
+                  height={450}
+                />
+              </AspectRatioBox>
             </div>
 
             {/* Text section */}
-            <div className="space-y-5 order-2 sm:order-1 xl:pr-30 ">
+            <div className="space-y-5 order-2 sm:order-1 xl:pr-30">
               <h1
                 data-aos="fade-up"
                 className="text-4xl sm:text-[48px] font-semibold pr-2 text-black_"
@@ -27,7 +36,7 @@ const Hero = () => {
                 <span className="text-primary"> CSPM </span> &
                 <span className="text-primary2"> CCOE </span> Features
               </h1>
-              <p data-aos="fade-up" className="pr-2 text-black_ ">
+              <p data-aos="fade-up" className="pr-2 text-black_">
                 ClouSec is a PaaS-based, AI-driven Cloud Infrastructure
                 Entitlement Management (CIEM) tool with Cloud Center of
                 Excellence (CCoE) capabilities. It automates cloud security
@@ -45,7 +54,6 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        {/* <ScrollToTop smooth top="20" width="" /> */}
       </div>
     </>
   );

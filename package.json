@@ -6,8 +6,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "optimize-images": "node scripts/generate-webp.js",
+    "prebuild": "npm run optimize-images",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "analyze": "vite build --mode analyze"
   },
   "dependencies": {
     "@hcaptcha/react-hcaptcha": "^1.11.0",
@@ -17,13 +20,15 @@
     "react-dom": "^18.3.1",
     "react-icons": "^4.12.0",
     "react-js-switch": "^1.1.6",
+    "react-lazy-load-image-component": "^1.6.3",
     "react-lottie": "^1.2.4",
     "react-router-dom": "^6.26.1",
     "react-scroll-to-top": "^3.0.0",
     "react-slick": "^0.30.1",
     "react-switch": "^7.0.0",
     "sass": "^1.77.8",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "web-vitals": "^3.5.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",
@@ -35,7 +40,10 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
     "postcss": "^8.4.32",
+    "rollup-plugin-visualizer": "^5.14.0",
+    "sharp": "^0.33.5",
     "tailwindcss": "^3.3.6",
-    "vite": "^5.0.8"
+    "vite": "^5.0.8",
+    "vite-plugin-imagemin": "^0.6.1"
   }
 }

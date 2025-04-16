@@ -1,22 +1,10 @@
-// import Access from "../../assets/accesscontrol.svg";
-// import Inventory from "../../assets/inventory.svg";
-// import Compliance from "../../assets/compliance.svg";
-// import Effective from "../../assets/insights.svg";
-// import Slider from "react-slick";
 import { MdSecurity } from "react-icons/md";
 import { GrVulnerability } from "react-icons/gr";
 import { MdSavings } from "react-icons/md";
 import { IoIosNotifications } from "react-icons/io";
 import { Link } from "react-router-dom";
-// import { MdOutlinePermIdentity } from "react-icons/md";
-// import { GrResources } from "react-icons/gr";
-// import { LuWorkflow } from "react-icons/lu";
-// import { GrDocumentPerformance } from "react-icons/gr";
-// import { IoIosCloud } from "react-icons/io";
-// import { FaArrowTrendUp } from "react-icons/fa6";
-// import { MdOutlineAccountTree } from "react-icons/md";
-
-// import { MdBugReport } from "react-icons/md";
+import { useEffect, useState } from "react";
+import { processBatch } from "../../utils/taskScheduler";
 
 const skillsData = [
   {
@@ -49,61 +37,47 @@ const skillsData = [
       "ClouSec ensures compliance with CIS, SOC, and MAS standards from day one. With automated scans and real-time monitoring, it continuously assesses cloud resources, helping organizations maintain regulatory compliance effortlessly.",
     aosDelay: "700",
   },
-
 ];
+
 const Services = () => {
-  // var settings = {
-  //   dots: false,
-  //   arrows: false,
-  //   infinite: true,
-  //   speed: 600,
-  //   slidesToShow: 3,
-  //   // slidesToScroll: 1,
-  //   autoplay: true,
-  //   autoplaySpeed: 2000,
-  //   cssEase: "linear",
-  //   pauseOnHover: true,
-  //   pauseOnFocus: true,
-  //   responsive: [
-  //     {
-  //       breakpoint: 10000,
-  //       settings: {
-  //         slidesToShow: 4,
-  //         slidesToScroll: 1,
-  //         infinite: true,
-  //       },
-  //     },
-  //     {
-  //       breakpoint: 1024,
-  //       settings: {
-  //         slidesToShow: 4,
-  //         slidesToScroll: 1,
-  //         initialSlide: 2,
-  //       },
-  //     },
-  //     {
-  //       breakpoint: 640,
-  //       settings: {
-  //         slidesToShow: 1,
-  //         slidesToScroll: 1,
-  //       },
-  //     },
-  //   ],
-  // };
+  const [processedSkills, setProcessedSkills] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  
+  // Process skills data in batches to improve FID (First Input Delay)
+  useEffect(() => {
+    const processSkills = async () => {
+      setIsLoading(true);
+      
+      // Process data in batches to avoid blocking the main thread
+      const processed = await processBatch(skillsData, skill => {
+        // Any complex processing can go here
+        return {
+          ...skill,
+          processed: true
+        };
+      });
+      
+      setProcessedSkills(processed);
+      setIsLoading(false);
+    };
+    
+    processSkills();
+  }, []);
+
   return (
     <>
       <span id="features"></span>
-      <div className="bg-white-100  py-12 sm:grid sm:place-items-center overflow-hidden">
+      <div className="bg-white-100 py-12 sm:grid sm:place-items-center overflow-hidden">
         <div className="container">
           {/* Header */}
           <div className="pb-12 text-center space-y-3">
             <span
               data-aos="fade-up"
-              className="text-[35px] font-bold sm:text-[55px] text-primary "
+              className="text-[35px] font-bold sm:text-[55px] text-primary"
             >
               The Power of ClouSec
             </span>
-            <h1 className="text-[30px] font-bold  w-full ">
+            <h1 className="text-[30px] font-bold w-full">
               Optimize Cyber Risk Management with our multi-feature PaaS
               platform
             </h1>
@@ -115,26 +89,34 @@ const Services = () => {
             </p>
           </div>
 
-          {/* services cards */}
-          <div className=" w-full flex pt-6 gap-4">
-            {skillsData.map((skill) => (
-              <div
-                key={skill.name}
-                // data-aos="fade-up"
-                data-aos-delay={skill.aosDelay}
-                className="flex  w-2/4  hover:shadow-lg  items-center  flex-col card space-y-3 sm:space-y-4 p-4 border border-primary2 rounded-lg"
-              >
-                <div className="   w-[100px] h-[100px] flex items-center justify-center p-1 bg-white  rounded-full text-primary2 border border-primary2 rounded-bg mt-[-70px]">
-                  {skill.icon}
-                </div>
-                <h1 className="text-lg font-semibold">{skill.name}</h1>
-                <p className="text-gray-600 dark:text-gray-400 text-center py-4">
-                  {skill.description}
-                </p>
-                {/* button */}
-                <Link to="/platform-overview" className=" text-primary mt-4">Read More</Link>
+          {/* Services cards - Using a container with min-height to prevent layout shift */}
+          <div className="w-full flex pt-6 gap-4 min-h-[300px]">
+            {isLoading ? (
+              // Placeholder while loading to prevent layout shift
+              <div className="w-full flex justify-center items-center">
+                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
               </div>
-            ))}
+            ) : (
+              // Render actual content when loaded
+              processedSkills.map((skill) => (
+                <div
+                  key={skill.name}
+                  data-aos="fade-up"
+                  data-aos-delay={skill.aosDelay}
+                  className="flex w-2/4 hover:shadow-lg items-center flex-col card space-y-3 sm:space-y-4 p-4 border border-primary2 rounded-lg"
+                >
+                  <div className="w-[100px] h-[100px] flex items-center justify-center p-1 bg-white rounded-full text-primary2 border border-primary2 rounded-bg mt-[-70px]">
+                    {skill.icon}
+                  </div>
+                  <h1 className="text-lg font-semibold">{skill.name}</h1>
+                  <p className="text-gray-600 dark:text-gray-400 text-center py-4">
+                    {skill.description}
+                  </p>
+                  {/* button */}
+                  <Link to="/platform-overview" className="text-primary mt-4">Read More</Link>
+                </div>
+              ))
+            )}
           </div>
         </div>
       </div>
