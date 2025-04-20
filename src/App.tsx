@@ -7,8 +7,9 @@ import ScrollProgressBar from "./components/ScrollProgressBar";
 
 // Regular import for components that are needed immediately
 import LoadingSpinner from "./components/LoadingSpinner";
-import Navbar from "./components/Navbar/Navbar";
+// import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
+import NavBar from "./components/common/NavBar";
 
 // Lazy load page components to improve initial load time
 const Home = lazy(() => import("./Pages/Home"));
@@ -43,8 +44,8 @@ const App: React.FC = () => {
 
   return (
     <BrowserRouter>
-      <ScrollProgressBar />
-      <Navbar />
+      {/* <ScrollProgressBar /> */}
+      <NavBar />
       <main className="min-h-screen">
         <Suspense fallback={<LoadingSpinner />}>
           <Routes>

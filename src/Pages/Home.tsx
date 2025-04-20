@@ -10,7 +10,7 @@ import Footer from "../components/Footer/Footer";
 import LoadingSpinner from "../components/LoadingSpinner";
 
 // Background image
-import a from "/hero-bg.jpg";
+import a from "/bg1.jpg";
 
 // Lazy load less critical components
 const Popup = lazy(() => import("../components/Popup/Popup"));
@@ -48,17 +48,8 @@ const Home: React.FC = () => {
         </Suspense>
       )}
       
-      <div
-        className="w-full overflow-x-hidden bg-center"
-        style={{ 
-          backgroundImage: `url(${a})`, 
-          backgroundSize: "contain",
-          minHeight: "100px" // Prevent layout shift while background loads
-        }}
-      >
-        <Navbar />
+   
         <Hero />
-      </div>
       
       {/* Main content sections */}
       <Services />
@@ -71,8 +62,7 @@ const Home: React.FC = () => {
       {/* Contact section */}
       <ContactUs />
       
-      {/* Footer */}
-      <Footer />
+     
     </>
   );
 };

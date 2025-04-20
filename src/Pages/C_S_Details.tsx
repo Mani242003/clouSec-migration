@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useParams, Navigate, Link } from "react-router-dom";
 import blogData, { CaseStudy } from "../assets/C_S_Data";
-import Navbar from "../components/Navbar/Navbar";
 import ContactUs from "../components/ContactUs";
 import Footer from "../components/Footer/Footer";
+import NavBar from "@/components/common/NavBar";
 
 const C_S_Details: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -20,7 +20,7 @@ const C_S_Details: React.FC = () => {
 
   return (
     <>
-      <Navbar />
+      {/* <NavBar /> */}
       <div className="w-full bg-gray-100 mt-[90px] py-12 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Content */}

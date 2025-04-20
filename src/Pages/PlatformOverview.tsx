@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 import ContactUs from "../components/ContactUs";
 import Solutions from "../components/Solutions";
@@ -21,7 +20,6 @@ const PlatformOverview: React.FC = () => {
 
   return (
     <>
-      <Navbar />
       <div className="mt-[90px]">
         <div
           className="DevOpsMainHeader h-[250px] flex flex-col items-center justify-center text-white"
@@ -37,18 +35,21 @@ const PlatformOverview: React.FC = () => {
         >
           <h1 className="text-[60px] font-semibold tracking-wide drop-shadow-lg text-white/400">
             ClouSec Platform Overview
+            
           </h1>
         </div>
       </div>
       
       <section className="flex flex-col md:flex-row bg-gray-100 p-[50px]">
         <div className="flex-1 flex flex-col justify-center items-start">
-          <h2 className="font-semibold text-[40px] md:text-[48px] text-gray-900 leading-[66.8px] md:leading-[76.8px] w-full">
-            About <span className="text-primary">ClouSec </span>Technologies Pvt
-            Ltd
+          <h2 className="font-semibold text-[40px] md:text-[48px] text-gray-900 leading-[66.8px] md:leading-[50.8px] w-full">
+            {/* About <span className="text-primary">ClouSec </span>Technologies Pvt
+            Ltd */}
+           The AI-Powered RegTech Platform for Effortless Cloud Compliance 
+
           </h2>
           <p className="font-poppins font-normal text-gray-900 text-[18px] leading-[30.8px] mt-5">
-            At ClouSec, we help businesses{" "}
+            {/* At ClouSec, we help businesses{" "}
             <span className="font-bold">
               optimize cloud expenses, enforce best practices, and automate SOC
               operations{" "}
@@ -68,8 +69,8 @@ const PlatformOverview: React.FC = () => {
             <span className="font-bold">
               compliance, security, cost efficiency, and streamlined cloud
               operations
-            </span>
-            .
+            </span> */}
+            Streamline cloud security and compliance with ClouSec, the intelligent RegTech platform designed for modern businesses. Unlike traditional CSPM tools, ClouSec delivers a unified solution with Security Information and Event Management (SIEM), Cloud Infrastructure Entitlement Management (CIEM) and Cloud Center of Excellence (CCoE) capabilities, providing a comprehensive shield for cloud infrastructures of any scale. ClouSec empowers organizations to meet country specific regulatory standards, automate cloud security operations using AI, and reduce cloud monthly billing.
           </p>
           <Link
             to="/book-demo"
@@ -95,7 +96,7 @@ const PlatformOverview: React.FC = () => {
       <Business />
       <Solutions />
       <ContactUs />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

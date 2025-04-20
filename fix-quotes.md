@@ -1,4 +1,4 @@
-# TypeScript String Quotes Fix
+<!-- # TypeScript String Quotes Fix
 
 When working with TypeScript, you need to be careful with quotes in string literals. The error you encountered was due to nested double quotes in string literals.
 
@@ -59,4 +59,4 @@ When working with TypeScript, you need to be careful with quotes in string liter
 
 5. **Watch for special characters**: Tab characters and other whitespace can cause issues in string literals.
 
-By following these practices, you'll avoid syntax errors in your TypeScript code.
+By following these practices, you'll avoid syntax errors in your TypeScript code. -->

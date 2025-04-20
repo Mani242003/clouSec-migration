@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react';
 interface OptimizedImageProps {
   src: string;
   alt: string;
-  width: number;
-  height: number;
+  width?: number;
+  height?: number;
   className?: string;
   priority?: boolean;
   placeholder?: string;

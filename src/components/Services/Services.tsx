@@ -38,14 +38,7 @@ const skillsData: Skill[] = [
     description: "ClouSec tracks malicious IP requests and unusual network activity in real time. By analyzing traffic patterns, it helps detect potential cyber threats, ensuring quick response to suspicious activity and reducing security risks.",
     aosDelay: "500",
   },
-  {
-    name: "Day 1 Compliance ",
-    icon: <IoIosNotifications className="text-[50px]" />,
-    link: "#",
-    description:
-      "ClouSec ensures compliance with CIS, SOC, and MAS standards from day one. With automated scans and real-time monitoring, it continuously assesses cloud resources, helping organizations maintain regulatory compliance effortlessly.",
-    aosDelay: "700",
-  },
+ 
 ];
 
 const Services: React.FC = () => {

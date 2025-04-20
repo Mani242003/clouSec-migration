@@ -11,7 +11,7 @@ const Popup: React.FC<PopupProps> = ({ show, onClose }) => {
   if (!show) return null;
 
   return (
-    <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50">
+    <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-[1000]">
       <div className="flex flex-col items-center justify-center bg-white w-full sm:w-10/12 shadow-lg relative">
         <div className="">
           <div className="absolute -top-10 sm:top-4 -right-10 text-4xl text-white cursor-pointer w-20">
