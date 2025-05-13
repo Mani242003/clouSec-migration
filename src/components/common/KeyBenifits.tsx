@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { MdSecurity } from "react-icons/md";
 import { GrVulnerability } from "react-icons/gr";
 import { MdSavings } from "react-icons/md";
-import { IoIosNotifications } from "react-icons/io";
+
 import { Link } from "react-router-dom";
 import { processBatch } from "../../utils/taskScheduler";
 
@@ -17,25 +17,25 @@ interface Skill {
 
 const skillsData: Skill[] = [
   {
-    name: "Security Findings",
+    name: "Automated Compliance",
     icon: <MdSecurity className="text-[50px]" />,
     link: "#",
-    description: "ClouSec identifies misconfigurations that violate regulatory standards, helping organizations maintain a secure cloud. By continuously scanning configurations, it detects risks early and ensures compliance with security frameworks.",
+    description: "Ensure adherence to country-specific regulations with intelligent compliance automation and real-time reporting.",
     aosDelay: "0",
   },
   {
-    name: "Vulnerability Detection",
+    name: "AI-Powered Security",
     icon: <GrVulnerability className="text-[50px]" />,
     link: "#",
     description:
-      "ClouSec identifies vulnerabilities in operating systems, containers, and applications using data from the National Vulnerability Database (NVD). By detecting weaknesses early, it enables faster remediation, reducing the risk of exploitation.",
+      "Detect and respond to threats faster with AI-driven threat intelligence and automated vulnerability management",
     aosDelay: "300",
   },
   {
-    name: "Threat Monitoring",
+    name: "Optimized Cloud Costs",
     icon: <MdSavings className="text-[50px]" />,
     link: "#",
-    description: "ClouSec tracks malicious IP requests and unusual network activity in real time. By analyzing traffic patterns, it helps detect potential cyber threats, ensuring quick response to suspicious activity and reducing security risks.",
+    description: "Reduce your monthly cloud bill through automated resource optimization and proactive cost management.",
     aosDelay: "500",
   },
  
@@ -69,26 +69,26 @@ const Services: React.FC = () => {
   return (
     <>
       <span id="features"></span>
-      <div className="bg-white-100 py-12 sm:grid sm:place-items-center overflow-hidden">
+      <div className="bg-white-100 py-12 sm:grid sm:place-items-center overflow-hidden ">
         <div className="container">
           {/* Header */}
           <div className="pb-12 text-center space-y-3">
-            <span
+            {/* <span
               data-aos="fade-up"
               className="text-[35px] font-bold sm:text-[55px] text-primary"
             >
               The Power of ClouSec
-            </span>
-            <h1 className="text-[30px] font-bold w-full">
+            </span> */}
+            <h1 className="text-[40px] font-bold w-full font-Grotesk">
               Optimize Cyber Risk Management with our multi-feature PaaS
               platform
             </h1>
-            <p
+            {/* <p
               data-aos="fade-up"
               className="pr-2 text-black_ w-full sm:w-2/4 mx-auto text-[19px]"
             >
               ClouSec allows you to efficiently manage Security Findings, Vulnerability Detection, Threat Monitoring, and Day 1 Compliance with speed and accuracy.
-            </p>
+            </p> */}
           </div>
 
           {/* Services cards - Using a container with min-height to prevent layout shift */}

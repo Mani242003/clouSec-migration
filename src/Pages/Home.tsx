@@ -1,34 +1,31 @@
 import React, { useEffect, useState, lazy, Suspense } from "react";
-import Hero from "../components/Hero/Hero";
-import Navbar from "../components/Navbar/Navbar";
-import Services from "../components/Services/Services";
-import Solutions from "../components/Solutions";
-import C_S_Component from "../components/C_S_Component";
-import Price from "../components/Price/Price";
-import ContactUs from "../components/ContactUs";
-import Footer from "../components/Footer/Footer";
-import LoadingSpinner from "../components/LoadingSpinner";
 
-// Background image
-import a from "/bg1.jpg";
-
-// Lazy load less critical components
 const Popup = lazy(() => import("../components/Popup/Popup"));
-const BrandsLogo = lazy(() => import("../components/BrandsLogo/BrandsLogo"));
-const BlogsComp = lazy(() => import("../components/Blogs/BlogsComp"));
-const ReadMoreLess = lazy(() => import("../components/ReadMoreLess/ReadMoreLess"));
+const BookDemo = lazy(() => import("./BookDemo"));
+const ClouSecPlatform = lazy(() => import("../components/ClouSecPlatform"));
+const PricingSection = lazy(() => import("../components/PriceSection"));
+const ClouSecOverview = lazy(() => import("../components/common/ClouSecOverview"));
+const Services = lazy(() => import("../components/common/KeyBenifits"));
+const Hero = lazy(() => import("../components/common/Hero"));
+
+
+
+
 
 const Home: React.FC = () => {
   const [isPopupVisible, setPopupVisible] = useState<boolean>(false);
   
   useEffect(() => {
-    // Set a timer to show the popup after 2 seconds
-    const timer = setTimeout(() => {
-      setPopupVisible(true);
-    }, 2000);
+    const hasSeenPopup = localStorage.getItem("hasSeenPopup");
 
-    // Clean up the timer when the component is unmounted
-    return () => clearTimeout(timer);
+    if (!hasSeenPopup) {
+      const timer = setTimeout(() => {
+        setPopupVisible(true);
+        localStorage.setItem("hasSeenPopup", "true"); // Mark as seen
+      }, 2000);
+
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   useEffect(() => {
@@ -39,10 +36,11 @@ const Home: React.FC = () => {
     setPopupVisible(false);
   };
 
+
   return (
     <>
       {/* Lazy load popup component */}
-      {isPopupVisible && (
+       {isPopupVisible && (
         <Suspense fallback={null}>
           <Popup show={isPopupVisible} onClose={closePopup} />
         </Suspense>
@@ -53,14 +51,17 @@ const Home: React.FC = () => {
       
       {/* Main content sections */}
       <Services />
-      <Solutions />
-      <C_S_Component />
+      {/* <Solutions /> */}
+      <ClouSecOverview />
+      {/* <C_S_Component /> */}
       
       {/* Pricing section */}
-      <Price />
+      <PricingSection  />
+      <ClouSecPlatform />
+      <BookDemo />
       
       {/* Contact section */}
-      <ContactUs />
+     {/* <ContactUs /> */}
       
      
     </>

@@ -24,12 +24,12 @@ reportWebVitals(({ name, delta, id, value }) => {
   // }
   
   // Example: Send to Google Analytics
-  if (window.gtag) {
-    window.gtag('event', name, {
-      event_category: 'Web Vitals',
-      event_label: id,
-      value: Math.round(name === 'CLS' ? delta * 1000 : delta),
-      non_interaction: true,
-    });
-  }
+  // if (window.gtag) {
+  //   window.gtag('event', name, {
+  //     event_category: 'Web Vitals',
+  //     event_label: id,
+  //     value: Math.round(name === 'CLS' ? delta * 1000 : delta),
+  //     non_interaction: true,
+  //   });
+  // }
 });

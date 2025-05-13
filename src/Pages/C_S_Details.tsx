@@ -3,7 +3,7 @@ import { useParams, Navigate, Link } from "react-router-dom";
 import blogData, { CaseStudy } from "../assets/C_S_Data";
 import ContactUs from "../components/ContactUs";
 import Footer from "../components/Footer/Footer";
-import NavBar from "@/components/common/NavBar";
+// import NavBar from "@/components/common/NavBar";
 
 const C_S_Details: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();

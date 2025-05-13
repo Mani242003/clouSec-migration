@@ -5,7 +5,7 @@ interface ContactFormProps {
   services?: string[];
 }
 
-const ContactForm: React.FC<ContactFormProps> = ({ services }) => {
+const ContactForm: React.FC<ContactFormProps> = () => {
   const [captchaVerified, setCaptchaVerified] = useState<boolean>(false);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [submitSuccess, setSubmitSuccess] = useState<boolean | null>(null);

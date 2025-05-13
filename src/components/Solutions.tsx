@@ -20,6 +20,7 @@ const Solutions: React.FC = () => {
   const contentRef = useRef<HTMLDivElement>(null);
   const [openIndex, setOpenIndex] = useState<number | null>(0);
   const [processedTabs, setProcessedTabs] = useState<TabItem[] | null>(null);
+console.log(processedTabs);
 
   const tabs: TabItem[] = [
     {
@@ -30,11 +31,11 @@ const Solutions: React.FC = () => {
       list: [
         {
           title: "Unified Security Dashboard",
-          content: `All security findings are automatically centralized and correlated, giving you a complete view of vulnerabilities and misconfigurations.`,
+          content: `Gain a complete view of vulnerabilities and misconfigurations with automatically centralized and correlated security findings`,
         },
         {
           title: "Actionable Insights",
-          content: `Data isn't just collected—it's analyzed for patterns and combined with threat intelligence, so you can act quickly on meaningful findings.`,
+          content: `Act quickly on meaningful findings with data that's not just collected, but analyzed for patterns and combined with threat intelligence.`,
         },
       ],
     },

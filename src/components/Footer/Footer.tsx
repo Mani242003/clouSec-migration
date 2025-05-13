@@ -1,17 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
-import Logo from "../../assets/logo.png";
+// import Logo from "../../assets/logo.png";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-gray-900 text-white overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Logo and About */}
           <div className="space-y-4">
             <Link to="/" className="inline-block">
-              <img src={Logo} alt="ClouSec Logo" className="h-12" />
+              {/* <img src={Logo} alt="ClouSec Logo" className="h-12" /> */}
             </Link>
             <p className="text-gray-400 text-sm">
               ClouSec is a PaaS-based, AI-driven Cloud Infrastructure Entitlement Management (CIEM) tool with Cloud Center of Excellence (CCoE) capabilities.
@@ -107,21 +107,39 @@ const Footer: React.FC = () => {
               <li>
                 <p className="flex flex-col">
                   <span className="font-medium">India:</span>
-                  <span className="text-sm">No 1, 2nd floor, Meenambal Salai, Vivekandhar Nagar, Chennai-600118</span>
+                  <span className="text-sm">No 1, 2nd floor, Meenambal Salai, Vivekandhar Nagar, Chennai-600118, India </span>
                 </p>
+
+
+
               </li>
               <li>
                 <p className="flex flex-col">
                   <span className="font-medium">USA:</span>
-                  <span className="text-sm">11700 Lebanon Road, Apt 1527 Frisco, TX 75035-75025</span>
+                  <span className="text-sm">11700 Lebanon Road, Apt 1527 Frisco, TX 75035-75025
+</span>
                 </p>
               </li>
-              <li>
-                <a href="mailto:sales@clousec.io" className="hover:text-white transition-colors">sales@clousec.io</a>
+             <div className="flex flex-col">
+               <li>
+                <a href="mailto:sales@clousec.net" className="hover:text-white transition-colors">sales@clousec.net</a> 
               </li>
               <li>
-                <a href="tel:+919790845787" className="hover:text-white transition-colors">+91 9790845787</a>
+                <a href="mailto:jerome@clousec.net" className="hover:text-white transition-colors">jerome@clousec.net</a>
               </li>
+              <li>
+                <a href="mailto:support@clousec.net" className="hover:text-white transition-colors">support@clousec.net</a>
+              </li>
+             </div>
+             <div className="flex flex-wrap ">
+               <li>
+                <a href="tel:+919790845787" className="hover:text-white transition-colors">+91 9790845787</a>&nbsp;|&nbsp;
+              </li> 
+               <li>
+                <a href="tel:+919345336553" className="hover:text-white transition-colors">+91 9345336553</a>
+              </li> 
+             </div>
+
             </ul>
           </div>
         </div>

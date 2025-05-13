@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FaDollarSign } from "react-icons/fa";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
@@ -18,7 +18,7 @@ interface PriceCardProps {
 }
 
 const PriceCard: React.FC<PriceCardProps> = ({ 
-  plan, 
+
   subPlan, 
   amout, 
   style, 

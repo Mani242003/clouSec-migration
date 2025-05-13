@@ -1,22 +1,22 @@
-import React, { useEffect, useState, lazy, Suspense } from "react";
+import React, { useEffect,  lazy, Suspense } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ScrollProgressBar from "./components/ScrollProgressBar";
 
 // Regular import for components that are needed immediately
 import LoadingSpinner from "./components/LoadingSpinner";
 // import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import NavBar from "./components/common/NavBar";
+import AboutUs from "./Pages/AboutUs";
 
 // Lazy load page components to improve initial load time
 const Home = lazy(() => import("./Pages/Home"));
-const ContactUs = lazy(() => import("./components/ContactUs"));
 const PlatformOverview = lazy(() => import("./Pages/PlatformOverview"));
 const C_S_Details = lazy(() => import("./Pages/C_S_Details"));
 const NoPage = lazy(() => import("./Pages/NoPage"));
+const BookDemo = lazy(() => import("./Pages/BookDemo"));
 
 const App: React.FC = () => {
   useEffect(() => {
@@ -50,8 +50,12 @@ const App: React.FC = () => {
         <Suspense fallback={<LoadingSpinner />}>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/book-demo" element={<ContactUs />} />
+            
             <Route path="/platform-overview" element={<PlatformOverview />} />
+             <Route path="/aboutUs" element={<AboutUs />} />
+             
+             <Route path="/book-demo" element={<BookDemo />} />
+
             <Route path="/blogs/:slug" element={<C_S_Details />} />
             <Route path="*" element={<NoPage />} />
           </Routes>

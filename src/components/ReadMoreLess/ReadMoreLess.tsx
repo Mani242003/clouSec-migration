@@ -1,5 +1,5 @@
 import React from "react";
-import aniImg from "../../assets/aniImg.png";
+
 import ani from "../../assets/g.gif";
 
 import Content1 from "./content1/Content1";

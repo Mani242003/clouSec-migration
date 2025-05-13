@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 // import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import Logo from "/logo.png";
 import Link from "../../components/common/Link";
-import ActionButton from "../../components/common/ActionButton";
+
 import a from "/bg1.jpg"; 
 import {  navLinks } from "../../components/constants";
 import {
@@ -17,7 +17,7 @@ import {
 import { cn } from "../../lib/utils";
 import ListItem from "../../components/common/ListItem";
 import AspectRatioBox from "../AspectRatioBox";
-import OptimizedImage from "../OptimizedImage";
+import GradientLinkButton from "./GradientLinkButtonProps";
 
 const NavBar = () => {
   const flexBetween = "flex items-center justify-between";
@@ -91,19 +91,21 @@ const NavBar = () => {
                     <span className="text-gray_ text-[15px] py-2 pb-3"> One platform to secure your apps and data in the cloud.</span>
                    
                      <AspectRatioBox ratio="">
-                    <OptimizedImage
-                      src="/sam-sol-2.webp"
-                      alt="ClouSec cloud security platform visualization"
-                      priority={true}
-                     
-                    />
+                   
+                    <img
+        src="/banner.jpg"
+        alt="ClouSec cloud security platform visualization"
+        style={{
+          objectFit: 'cover',
+        }}
+      />
                   </AspectRatioBox>
-                  <Link
-  path="/book-demo"
-  classname="w-[140px] px-2 py-2 mt-[9.5rem] bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold text-center rounded-full shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out hover:from-white hover:to-white hover:text-indigo-600 border-2 border-transparent hover:border-indigo-600"
->
-  Get a Demo →
-</Link>
+ 
+
+<GradientLinkButton className="mt-[9.5rem]" path="/book-demo">
+Get a Demo
+      </GradientLinkButton>
+
                   </div>
                 </NavigationMenuLink>
               </li>
@@ -126,7 +128,7 @@ const NavBar = () => {
           <NavigationMenuTrigger className="text-black">Company</NavigationMenuTrigger>
           <NavigationMenuContent className="bg-white text-black">
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-            <ListItem href="/docs" title="About	Us">
+            <ListItem href="/aboutUs" title="About	Us">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero quam, maiores facilis a placeat mollitia neque obcaecati, error illum sequi tenetur, ullam cumque sit odit ea vel adipisci quia nemo!
 
               </ListItem>
@@ -171,8 +173,11 @@ const NavBar = () => {
     <div className="flex items-center ">
               {/* <Link label="Sign In" path="/lab" /> */}
               {/* <NavigationMenuTrigger>Getting started</NavigationMenuTrigger> */}
-                <ActionButton  className={cn("border-2  border-primary2 text-black rounded px-5  ", scrolled ? " bg-primary2 text-white" : " bg-transparent text-black  ")} path="/browse-mentor" >Get	Secure	
-                with	ClouSec</ActionButton>
+                <GradientLinkButton  icon='false'  path="/book-demo">
+                Get	Secure	
+                with	ClouSec
+      </GradientLinkButton>
+                
               </div>
             </div>
             

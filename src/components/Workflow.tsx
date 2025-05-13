@@ -1,5 +1,4 @@
 import React from "react";
-import { LuCheckCircle2 } from "react-icons/lu";
 import codeImg from "/hero-image-providers.webp";
 
 interface ChecklistItem {
@@ -8,26 +7,29 @@ interface ChecklistItem {
 }
 
 const checklistItems: ChecklistItem[] = [
-  {
-    title: "Intelligent Ticketing System",
-    description:
-      "Streamline incident resolution with auto-escalation workflows.",
-  },
-  {
-    title: "User Access Matrix",
-    description:
-      "Periodically review access privileges and take necessary actions.",
-  },
-  {
-    title: "Cost Management",
-    description:
-      "Optimize cloud spend with rightsizing recommendations and automated resource cleanup.",
-  },
-  {
-    title: "Eagle Tree View",
-    description:
-      "Gain a comprehensive view of root and associated accounts, including health status, cost insights, and misconfiguration details.",
-  },
+  
+    {
+      title: "Intelligent Ticketing System",
+      description:
+        "Streamline incident resolution with auto-escalation workflows.",
+    },
+    {
+      title: "User Access Matrix",
+      description:
+        "Periodically review access privileges and take necessary actions.",
+    },
+    {
+      title: "Cost Management",
+      description:
+        "Optimize cloud spend with rightsizing recommendations and automated resource cleanup.",
+    },
+    {
+      title: "Eagle Tree View",
+      description:
+        "Gain a comprehensive view of root and associated accounts, including health status, cost insights, and misconfiguration details.",
+    }
+  
+  
 ];
 
 const Workflow: React.FC = () => {
@@ -36,7 +38,7 @@ const Workflow: React.FC = () => {
       <h2 className="text-3xl sm:text-5xl lg:text-6xl text-center mt-6 tracking-wide">
         Workflow{" "}
         <span className="text-primary bg-clip-text">
-          Automation
+         
         </span>
       </h2>
       <div className="flex flex-wrap justify-center pt-12">
